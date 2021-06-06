@@ -25,9 +25,9 @@ class Stepper(Thread):
       [1,0,0,0]
     ]
     
-    SLOW = 0.0014
-    MEDIUM = 0.0011
-    FAST = 0.0009
+    SLOW = 0.002
+    MEDIUM = 0.0016
+    FAST = 0.0012
     TURBO = 0.0007
     
     def __init__(self, IN1, IN2, IN3, IN4):
@@ -63,17 +63,23 @@ class Stepper(Thread):
                         ctr += 1
                     time.sleep(self.speed)
             
-    def forward(self, speed=0.0014):
+    def forward(self, speed=0.002):
         print('Forward')
         self.is_spinning = True
         self.speed = speed
         self.steps = Stepper.rotation_steps_forward
     
-    def backward(self, speed=0.0014):
+    def backward(self, speed=0.002):
         print('Backward')
         self.is_spinning = True
         self.speed = speed
         self.steps = Stepper.rotation_steps_backward
+        
+    def slow(self, x):
+        print('Slow')
+        while self.is_spinning:
+            self.decrease_speed()
+            time.sleep(x)
         
     def increase_speed(self):
         print('Increase')

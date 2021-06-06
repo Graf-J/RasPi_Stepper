@@ -75,12 +75,6 @@ class Stepper(Thread):
         self.speed = speed
         self.steps = Stepper.rotation_steps_backward
         
-    def slow(self, x):
-        print('Slow')
-        while self.is_spinning:
-            self.decrease_speed()
-            time.sleep(x)
-        
     def increase_speed(self):
         print('Increase')
         if self.speed == Stepper.SLOW:

@@ -12,11 +12,10 @@ def user_interaction(stepper):
     i = input("""
     1) Forward
     2) Backward
-    3) Slow
-    4) Increase
-    5) Decrease
-    6) Stop
-    7) Terminate
+    3) Increase
+    4) Decrease
+    5) Stop
+    6) Terminate
     """)
     
     if int(i) == 1:
@@ -24,14 +23,12 @@ def user_interaction(stepper):
     elif int(i) == 2:
         stepper.backward()
     elif int(i) == 3:
-        stepper.slow(1)
-    elif int(i) == 4:
         stepper.increase_speed()
-    elif int(i) == 5:
+    elif int(i) == 4:
         stepper.decrease_speed()
-    elif int(i) == 6:
+    elif int(i) == 5:
         stepper.stop()
-    elif int(i) == 7:
+    elif int(i) == 6:
         stepper.terminate()
     else:
         print('Falsche Eingabe')
